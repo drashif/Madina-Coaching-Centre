@@ -12,6 +12,7 @@ body{background:var(--cream);color:var(--ink)}
 .brand-mark img{display:block;width:100%;height:100%;object-fit:contain}
 .footer-brand .brand-mark{background:#fff url('mcc-logo.png') center/contain no-repeat}.footer-brand .brand-mark svg{display:none}
 .brand-text,.brand-text strong{color:#45266e}.header-cta,.button-dark,.button-light{background:#45266e}.header-cta:hover,.button-dark:hover,.button-light:hover{background:#68419a}
+.brand-text .brand-founder{font:700 7px var(--sans);font-style:normal;letter-spacing:.1em;color:#9278aa;margin-top:3px;white-space:nowrap}
 .hero h1,.section h2,.contact-copy h2{color:#45266e}.hero h1 em,.section h2 em,.contact-copy h2 em{color:#9475b8}
 .art-wash{background:#eee5f5}.floating-note{background:#fffdff}.note-icon{background:#eee4f5;color:#49286f}
 .hero-sticker{background:#ead9f8;color:#45266e}.scribble{color:#967cb7}.avatar-stack i{background:#e5d8f1;color:#45266e}.avatar-stack i:nth-child(2){background:#d2bfdc}.avatar-stack i:nth-child(3){background:#45266e;color:#fff}
