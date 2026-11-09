@@ -1,5 +1,4 @@
-// Add MCC's real admissions inbox here to enable the email handoff.
-const ADMISSIONS_EMAIL = '';
+const ADMISSIONS_EMAIL = 'drashiff.alii@gmail.com';
 
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
@@ -36,7 +35,7 @@ document.querySelectorAll('[data-reply]').forEach((button) => {
 
 const form = document.querySelector('#admissions-form');
 const status = document.querySelector('#form-status');
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
   status.classList.remove('is-error', 'is-success');
   if (!form.reportValidity()) return;
@@ -53,22 +52,34 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  if (!ADMISSIONS_EMAIL) {
-    status.textContent = 'Your enquiry details are valid. To send them to Madina, add the centre’s admissions email in script.js; until then, this demo cannot deliver form submissions.';
-    status.classList.add('is-error');
-    return;
-  }
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  status.textContent = 'Sending your enquiry…';
 
-  const subject = `MCC admission enquiry: ${data.student}`;
-  const body = [
-    `Student: ${data.student}`,
-    `Parent / guardian: ${data.guardian || 'Not provided'}`,
-    `Class: ${data.grade}`,
-    `Program: ${data.program}`,
-    `Contact: ${contact}`,
-    `Question: ${data.message || 'Not provided'}`
-  ].join('\n');
-  window.location.href = `mailto:${ADMISSIONS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  status.textContent = 'Your email app should open with the enquiry details ready to send.';
-  status.classList.add('is-success');
+  try {
+    const response = await fetch(`https://formsubmit.co/ajax/${ADMISSIONS_EMAIL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        ...data,
+        _subject: `MCC admission enquiry: ${data.student}`,
+        _replyto: looksLikeEmail ? contact : '',
+        _template: 'table',
+        _url: window.location.href
+      })
+    });
+    const result = await response.json();
+    if (!response.ok || result.success === false || result.success === 'false') {
+      throw new Error(result.message || 'The form service could not accept this enquiry.');
+    }
+
+    status.textContent = 'Thank you! Your enquiry has been sent to Madina Coaching Centre. We’ll contact you using the details you provided.';
+    status.classList.add('is-success');
+    form.reset();
+  } catch (error) {
+    status.textContent = 'We couldn’t send your enquiry right now. Please try again in a moment.';
+    status.classList.add('is-error');
+  } finally {
+    button.disabled = false;
+  }
 });

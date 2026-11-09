@@ -31,3 +31,4 @@ body{background:var(--cream);color:var(--ink)}
 .header-founder{font:700 9px var(--sans);letter-spacing:.08em;color:#634282;line-height:1.2;margin-top:-2px;padding-left:3px}
 @media(max-width:760px){.site-header{height:88px;padding:0 14px;gap:7px}.header-brand{flex:1;gap:7px}.brand-lockup{width:min(40vw,240px);max-height:68px}.header-founder{font-size:8px}.header-cta{padding:10px 9px;font-size:9px}.header-cta span{margin-left:5px}}
 @media(max-width:460px){.brand-lockup{width:min(48vw,230px)}.header-founder{align-self:flex-start;margin-top:-3px;padding-left:3px}}
+.form-honey{display:none!important}.submit-button:disabled{opacity:.65;cursor:wait}
