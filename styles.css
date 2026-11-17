@@ -33,4 +33,9 @@ body{background:var(--cream);color:var(--ink)}
 .header-founder{font:700 9px var(--sans);letter-spacing:.08em;color:#634282;line-height:1.2;margin-top:-2px;padding-left:3px}
 @media(max-width:760px){.site-header{height:88px;padding:0 14px;gap:7px}.header-brand{flex:1;gap:7px}.brand-lockup{width:min(40vw,240px);max-height:68px}.header-founder{font-size:8px}.header-cta{padding:10px 9px;font-size:9px}.header-cta span{margin-left:5px}}
 @media(max-width:460px){.brand-lockup{width:min(48vw,230px)}.header-founder{align-self:flex-start;margin-top:-3px;padding-left:3px}}
+/* Keep the desktop navigation compact and on a single line. */
+.main-nav{flex:0 1 auto;gap:clamp(12px,1.65vw,23px);margin-left:clamp(16px,2.2vw,30px);white-space:nowrap}
+.main-nav a{font-size:10px}
+.header-cta{white-space:nowrap;flex-shrink:0;padding:11px 15px;font-size:10px}
+@media(max-width:900px){.main-nav{display:none}.main-nav.open{display:flex}.menu-toggle{width:28px;height:28px;border:0;background:transparent;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:4px}.menu-toggle span{height:1.5px;width:20px;background:#45266e}.site-header{gap:10px}.header-cta{margin-left:auto}.main-nav.open{position:absolute;top:100%;left:0;right:0;margin:0;padding:18px 24px 22px;background:#fcfaff;border-top:1px solid #e9e2ee;box-shadow:0 15px 20px #152f2415;flex-direction:column;gap:16px;white-space:normal}.main-nav.open a{font-size:13px}}
 .form-honey{display:none!important}.submit-button:disabled{opacity:.65;cursor:wait}
