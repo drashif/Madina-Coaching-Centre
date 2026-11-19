@@ -30,9 +30,8 @@ body{background:var(--cream);color:var(--ink)}
 .site-header{height:112px}
 .header-brand{display:flex;flex:0 1 auto;min-width:0;flex-direction:column;align-items:flex-start;gap:0}
 .brand-lockup{display:block;width:min(34vw,380px);height:auto;max-height:96px;object-fit:contain}
-.header-founder{font:700 9px var(--sans);letter-spacing:.08em;color:#634282;line-height:1.2;margin-top:-2px;padding-left:3px}
-@media(max-width:760px){.site-header{height:88px;padding:0 14px;gap:7px}.header-brand{flex:1;gap:7px}.brand-lockup{width:min(40vw,240px);max-height:68px}.header-founder{font-size:8px}.header-cta{padding:10px 9px;font-size:9px}.header-cta span{margin-left:5px}}
-@media(max-width:460px){.brand-lockup{width:min(48vw,230px)}.header-founder{align-self:flex-start;margin-top:-3px;padding-left:3px}}
+@media(max-width:760px){.site-header{height:88px;padding:0 14px;gap:7px}.header-brand{flex:1;gap:7px}.brand-lockup{width:min(40vw,240px);max-height:68px}.header-cta{padding:10px 9px;font-size:9px}.header-cta span{margin-left:5px}}
+@media(max-width:460px){.brand-lockup{width:min(48vw,230px)}}
 /* Keep the desktop navigation compact and on a single line. */
 .main-nav{flex:0 1 auto;gap:clamp(12px,1.65vw,23px);margin-left:clamp(16px,2.2vw,30px);white-space:nowrap}
 .main-nav a{font-size:10px}
